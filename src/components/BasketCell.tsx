@@ -18,7 +18,7 @@ const BasketCell = ({ item }: { item: BasketItem }) => {
     return (
         <View style={styles.container}>
             <Image source={{ uri: item.product.img }} style={styles.image} resizeMode='contain' />
-            <View style={{ flex: 1 }}>
+            <View style={styles.detailContainer}>
                 <Text>{item.product.name}</Text>
                 <Text>${item.product.price}</Text>
                 <Text>Quantity: {item.quantity}</Text>
@@ -46,6 +46,9 @@ const styles = StyleSheet.create({
         borderBottomWidth: 1,
         borderBottomColor: '#dddddd',
         justifyContent: 'space-between',
+    },
+    detailContainer: {
+        flex: 1
     },
     buttonsContainer: {
         flexDirection: 'row',

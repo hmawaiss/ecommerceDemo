@@ -1,5 +1,5 @@
 import React from 'react';
-import { View, FlatList, Text } from 'react-native';
+import { View, FlatList, Text, StyleSheet } from 'react-native';
 import { useSelector } from 'react-redux';
 import { RootState } from '../redux/reducers/rootReducer';
 import BasketCell from '../components/BasketCell';
@@ -13,12 +13,21 @@ const BasketScreen = () => {
             keyExtractor={(item) => item.product.id.toString()}
             renderItem={({ item }) => <BasketCell item={item} />}
             ListEmptyComponent={
-                <View style={{ alignItems: 'center' }}>
-                    <Text style={{ color: '#333333' }}>No products in the basket</Text>
+                <View style={styles.emptyView}>
+                    <Text style={styles.emptyText}>No products in the basket</Text>
                 </View>
             }
         />
     );
 };
+
+const styles = StyleSheet.create({
+    emptyView: {
+        alignItems: 'center'
+    },
+    emptyText: {
+        color: '#333333'
+    }
+});
 
 export default BasketScreen;
